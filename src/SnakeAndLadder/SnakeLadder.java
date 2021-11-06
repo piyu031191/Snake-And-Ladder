@@ -1,21 +1,7 @@
 package SnakeAndLadder;
 
 public class SnakeLadder { 
-	public static int Action(int position, int dice, String type ) {
-		if(type == "ladder") {
-			if(position + dice > 100) {
-				//escape the additon
-			} else {
-				position += dice ;
-			}
-		} else {
-			position -= dice ;
-			if(position < 0) {
-				position = 0;
-			}
-		}
-		return position;
-	}
+	
 
 	public static void main(String[] args) {
 		int position1 = 0;
@@ -41,37 +27,27 @@ public class SnakeLadder {
     	    case 1: 
     	    //SnakeLadder.Action(position2, diceCopy2, null)
     	    	if(chance==0) {
-    	    		position1 = SnakeLadder.Action(position1, diceCopy, "ladder");
+    	    		position1 += diceCopy;
     	    		System.out.println("First player action: ladder with Position " + position1); 		
     	    	}else {
-    	    		position2 = SnakeLadder.Action(position2, diceCopy, "ladder");
+    	    		position2 += diceCopy;
     	    		System.out.println("Second player action: ladder with Position " + position2);		
     	    	}
     	    	break;
     	    case 2: 
     	    	System.out.println(" Player action: snake");
     	    	if(chance==0) {
-    	    		position1 = SnakeLadder.Action(position1, diceCopy, "snake");
+    	    		position1 -= diceCopy;
     	    		System.out.println("First player action: snake with Position " + position1); 		
     	    	}else {
-    	    		position2 = SnakeLadder.Action(position2, diceCopy, "snake");
+    	    		position2 -= diceCopy;
     	    		System.out.println("Second player action: snake with Position " + position2);		
     	    	}
     	    	break;	    				
     	    }
-        	
-    	    if(chance == 0 ) {
-    	    	chance = 1;	
-    	    } else {
-    	    	chance = 0;
-    	    }
-        }
-	    if(position1 > 99) {	
-	    	System.out.println("first player is win");
-	    }else {
-	    	
-	    	System.out.println("second player is win");
+    	    
 	    }
+	    
 	}
-
+	
 }
