@@ -2,17 +2,20 @@ package SnakeAndLadder;
 
 public class SnakeLadder { 
 	public static int Action(int position, int dice, String type ) {
-	if(type == "ladder") {
-			position += dice ;
-	} else {
-		position -= dice ;
-		if(position < 0) {
-			position = 0;
+		if(type == "ladder") {
+			if(position + dice > 100) {
+				//escape the additon
+			} else {
+				position += dice ;
+			}
+		} else {
+			position -= dice ;
+			if(position < 0) {
+				position = 0;
+			}
 		}
+		return position;
 	}
-	return position;
-}
-
 public static void main(String[] args) {
 	int position1 = 0;
 	int position2 = 0; 
